@@ -9,55 +9,56 @@ public class GildedRose {
 
     public void startNextDay() {
         for (Item item : items) {
-            if (item.name.equals("Aged Brie")
-                    || item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
+            switch (item.name) {
+                case "Sulfuras, Hand of Ragnaros" -> processLegendary();
+                case "Aged Brie" -> processCheese(item);
+                case "Backstage passes to a TAFKAL80ETC concert" -> processConcertPass(item);
+                default -> processRegularItem(item);
+            }
+        }
+    }
 
-                    if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (item.sellIn < 11 && (item.quality < 50)) {
-                            item.quality = item.quality + 1;
+    private static void processLegendary() {
+        // legendary items never change in quality or sell in days value
+    }
 
-                        }
+    private static void processRegularItem(final Item item) {
+        if (item.quality > 0) {
+            item.quality = item.quality - 1;
+        }
 
-                        if (item.sellIn < 6 && (item.quality < 50)) {
-                            item.quality = item.quality + 1;
+        item.sellIn = item.sellIn - 1;
 
-                        }
-                    }
-                }
-            } else {
-                if (item.quality > 0) {
-                    if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                    } else {
-                        item.quality = item.quality - 1;
-                    }
-                }
+        if (item.sellIn < 0 && item.quality > 0) {
+            item.quality = item.quality - 1;
+        }
+    }
+
+    private static void processConcertPass(final Item item) {
+        if (item.quality < 50) {
+            item.quality = item.quality + 1;
+
+            if (item.sellIn < 11 && item.quality < 50) {
+                item.quality = item.quality + 1;
             }
 
-            if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
-            } else {
-                item.sellIn = item.sellIn - 1;
+            if (item.sellIn < 6 && item.quality < 50) {
+                item.quality = item.quality + 1;
             }
+        }
+        item.sellIn = item.sellIn - 1;
+        if (item.sellIn < 0) {
+            item.quality = 0;
+        }
+    }
 
-            if (item.sellIn < 0) {
-                if (item.name.equals("Aged Brie")) {
-                    if (item.quality < 50) {
-                        item.quality = item.quality + 1;
-                    }
-                } else {
-                    if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        item.quality = 0;
-                    } else {
-                        if (item.quality > 0) {
-                            if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                                continue;
-                            }
-                            item.quality = item.quality - 1;
-                        }
-                    }
-                }
-            }
+    private static void processCheese(final Item item) {
+        if (item.quality < 50) {
+            item.quality = item.quality + 1;
+        }
+        item.sellIn = item.sellIn - 1;
+        if (item.sellIn < 0 && item.quality < 50) {
+            item.quality = item.quality + 1;
         }
     }
 }
