@@ -9,14 +9,16 @@ public class RegularItemProcessor extends AbstractNextDayProcessor {
 
     @Override
     public void processNextDay() {
-        if (item.quality > 0) {
-            item.quality = item.quality - 1;
-        }
+        decreaseSellIn1Day();
 
-        item.sellIn = item.sellIn - 1;
+        updateQuality();
+    }
 
-        if (item.sellIn < 0 && item.quality > 0) {
-            item.quality = item.quality - 1;
+    private void updateQuality() {
+        decreaseQuality();
+
+        if (hasSellByDatePassed()) {
+            decreaseQuality();
         }
     }
 }

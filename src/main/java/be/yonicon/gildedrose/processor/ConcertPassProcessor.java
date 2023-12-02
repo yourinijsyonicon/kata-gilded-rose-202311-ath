@@ -3,26 +3,29 @@ package be.yonicon.gildedrose.processor;
 import be.yonicon.gildedrose.Item;
 
 public class ConcertPassProcessor extends AbstractNextDayProcessor {
+
     public ConcertPassProcessor(final Item item) {
         super(item);
     }
 
     @Override
     public void processNextDay() {
-        if (item.quality < 50) {
-            item.quality = item.quality + 1;
+        decreaseSellIn1Day();
 
-            if (item.sellIn < 11 && item.quality < 50) {
-                item.quality = item.quality + 1;
-            }
+        updateQuality();
+    }
 
-            if (item.sellIn < 6 && item.quality < 50) {
-                item.quality = item.quality + 1;
+    private void updateQuality() {
+        increaseQuality();
+        if (hasSellByDatePassed()) {
+            item.quality = MINIMUM_ITEM_QUALITY;
+        } else {
+            if (item.sellIn < 10) {
+                increaseQuality();
             }
-        }
-        item.sellIn = item.sellIn - 1;
-        if (item.sellIn < 0) {
-            item.quality = 0;
+            if (item.sellIn < 5) {
+                increaseQuality();
+            }
         }
     }
 }
