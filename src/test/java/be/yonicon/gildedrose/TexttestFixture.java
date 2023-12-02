@@ -1,8 +1,21 @@
 package be.yonicon.gildedrose;
 
+import java.util.function.Consumer;
+
 public class TexttestFixture {
     public static void main(String[] args) {
-        System.out.println("OMGHAI!");
+        fixture(args, System.out::println);
+    }
+
+    public static String capture(final String[] args) {
+        StringBuilder sB = new StringBuilder();
+        fixture(args, str -> sB.append(str).append(System.lineSeparator()));
+
+        return sB.toString();
+    }
+
+    private static void fixture(final String[] args, final Consumer<String> appender) {
+        appender.accept("OMGHAI!");
 
         Item[] items = new Item[] {
                 new Item("+5 Dexterity Vest", 10, 20), //
@@ -24,12 +37,12 @@ public class TexttestFixture {
         }
 
         for (int i = 0; i < days; i++) {
-            System.out.println("-------- day " + i + " --------");
-            System.out.println("name, sellIn, quality");
+            appender.accept("-------- day " + i + " --------");
+            appender.accept("name, sellIn, quality");
             for (Item item : items) {
-                System.out.println(item);
+                appender.accept("" + item);
             }
-            System.out.println();
+            appender.accept("");
             app.updateQuality();
         }
     }
