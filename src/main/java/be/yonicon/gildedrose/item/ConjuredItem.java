@@ -1,10 +1,8 @@
-package be.yonicon.gildedrose.processor;
+package be.yonicon.gildedrose.item;
 
-import be.yonicon.gildedrose.Item;
-
-public final class ConjuredItemProcessor extends AbstractNextDayProcessor {
-    public ConjuredItemProcessor(final Item item) {
-        super(item);
+public final class ConjuredItem extends Item {
+    public ConjuredItem(final String name, final int sellIn, final int quality) {
+        super(name, sellIn, quality);
     }
 
     @Override

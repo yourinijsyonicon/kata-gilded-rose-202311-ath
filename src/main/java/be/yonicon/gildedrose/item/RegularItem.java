@@ -1,10 +1,8 @@
-package be.yonicon.gildedrose.processor;
+package be.yonicon.gildedrose.item;
 
-import be.yonicon.gildedrose.Item;
-
-public final class RegularItemProcessor extends AbstractNextDayProcessor {
-    public RegularItemProcessor(final Item item) {
-        super(item);
+public final class RegularItem extends Item {
+    public RegularItem(final String name, final int sellIn, final int quality) {
+        super(name, sellIn, quality);
     }
 
     @Override

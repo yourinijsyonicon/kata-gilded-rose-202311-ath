@@ -1,7 +1,6 @@
 package be.yonicon.gildedrose.item;
 
-import be.yonicon.gildedrose.GildedRose;
-import be.yonicon.gildedrose.Item;
+import be.yonicon.gildedrose.GildedRoseInn;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -12,11 +11,11 @@ class LegendaryTest {
 
     @Test
     void shouldNeverChange() {
-        Item sulfuras = new Item(LEGENDARY_ITEM_NAME, 100, 80);
-        GildedRose gildedRose = new GildedRose(new Item[]{sulfuras});
+        Item sulfuras = new LegendaryItem(LEGENDARY_ITEM_NAME, 100, 80);
+        GildedRoseInn gildedRose = new GildedRoseInn(new Item[]{sulfuras});
 
-        gildedRose.startNextDay();
-        gildedRose.startNextDay();
+        gildedRose.openNextDay();
+        gildedRose.openNextDay();
 
         assertThat(sulfuras.name).isEqualTo(LEGENDARY_ITEM_NAME);
         assertThat(sulfuras.quality).isEqualTo(80);
@@ -25,11 +24,11 @@ class LegendaryTest {
 
     @Test
     void shouldNeverChangeEvenIfQualityIsBelow50() {
-        Item sulfuras = new Item(LEGENDARY_ITEM_NAME, 100, 49);
-        GildedRose gildedRose = new GildedRose(new Item[]{sulfuras});
+        Item sulfuras = new LegendaryItem(LEGENDARY_ITEM_NAME, 100, 49);
+        GildedRoseInn gildedRose = new GildedRoseInn(new Item[]{sulfuras});
 
-        gildedRose.startNextDay();
-        gildedRose.startNextDay();
+        gildedRose.openNextDay();
+        gildedRose.openNextDay();
 
         assertThat(sulfuras.name).isEqualTo(LEGENDARY_ITEM_NAME);
         assertThat(sulfuras.quality).isEqualTo(49);
@@ -38,11 +37,11 @@ class LegendaryTest {
 
     @Test
     void sellInPassedHasNoImpactOnQuality() {
-        Item sulfuras = new Item(LEGENDARY_ITEM_NAME, -10, 80);
-        GildedRose gildedRose = new GildedRose(new Item[]{sulfuras});
+        Item sulfuras = new LegendaryItem(LEGENDARY_ITEM_NAME, -10, 80);
+        GildedRoseInn gildedRose = new GildedRoseInn(new Item[]{sulfuras});
 
-        gildedRose.startNextDay();
-        gildedRose.startNextDay();
+        gildedRose.openNextDay();
+        gildedRose.openNextDay();
 
         assertThat(sulfuras.name).isEqualTo(LEGENDARY_ITEM_NAME);
         assertThat(sulfuras.quality).isEqualTo(80);

@@ -1,11 +1,8 @@
-package be.yonicon.gildedrose.processor;
+package be.yonicon.gildedrose.item;
 
-import be.yonicon.gildedrose.Item;
-
-public final class ConcertPassProcessor extends AbstractNextDayProcessor {
-
-    public ConcertPassProcessor(final Item item) {
-        super(item);
+public final class ConcertPassItem extends Item {
+    public ConcertPassItem(final String name, final int sellIn, final int quality) {
+        super(name, sellIn, quality);
     }
 
     @Override
@@ -18,12 +15,12 @@ public final class ConcertPassProcessor extends AbstractNextDayProcessor {
     private void updateQuality() {
         increaseQuality();
         if (hasSellByDatePassed()) {
-            item.quality = MINIMUM_ITEM_QUALITY;
+            quality = MINIMUM_ITEM_QUALITY;
         } else {
-            if (item.sellIn < 10) {
+            if (sellIn < 10) {
                 increaseQuality();
             }
-            if (item.sellIn < 5) {
+            if (sellIn < 5) {
                 increaseQuality();
             }
         }
