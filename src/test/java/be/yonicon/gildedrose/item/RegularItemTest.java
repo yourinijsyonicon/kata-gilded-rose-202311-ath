@@ -1,7 +1,6 @@
 package be.yonicon.gildedrose.item;
 
-import be.yonicon.gildedrose.GildedRose;
-import be.yonicon.gildedrose.Item;
+import be.yonicon.gildedrose.GildedRoseInn;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -11,10 +10,10 @@ class RegularItemTest {
 
     @Test
     void shouldDecreaseQualityBy1IfNotPassedSellIn() {
-        Item item = new Item(ITEM_NAME, 10, 20);
-        GildedRose gildedRose = new GildedRose(new Item[]{item});
+        Item item = new RegularItem(ITEM_NAME, 10, 20);
+        GildedRoseInn gildedRose = new GildedRoseInn(new Item[]{item});
 
-        gildedRose.startNextDay();
+        gildedRose.openNextDay();
 
         assertThat(item.name).isEqualTo(ITEM_NAME);
         assertThat(item.quality).isEqualTo(19);
@@ -23,10 +22,10 @@ class RegularItemTest {
 
     @Test
     void shouldDecreaseQualityBy2IfPassedSellIn() {
-        Item item = new Item(ITEM_NAME, 0, 20);
-        GildedRose gildedRose = new GildedRose(new Item[]{item});
+        Item item = new RegularItem(ITEM_NAME, 0, 20);
+        GildedRoseInn gildedRose = new GildedRoseInn(new Item[]{item});
 
-        gildedRose.startNextDay();
+        gildedRose.openNextDay();
 
         assertThat(item.name).isEqualTo(ITEM_NAME);
         assertThat(item.quality).isEqualTo(18);
@@ -35,10 +34,10 @@ class RegularItemTest {
 
     @Test
     void shouldNeverHaveNegativeQuality() {
-        Item item = new Item(ITEM_NAME, 0, 0);
-        GildedRose gildedRose = new GildedRose(new Item[]{item});
+        Item item = new RegularItem(ITEM_NAME, 0, 0);
+        GildedRoseInn gildedRose = new GildedRoseInn(new Item[]{item});
 
-        gildedRose.startNextDay();
+        gildedRose.openNextDay();
 
         assertThat(item.name).isEqualTo(ITEM_NAME);
         assertThat(item.quality).isEqualTo(0);

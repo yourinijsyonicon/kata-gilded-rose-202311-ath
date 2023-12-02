@@ -1,11 +1,8 @@
-package be.yonicon.gildedrose.processor;
+package be.yonicon.gildedrose.item;
 
-import be.yonicon.gildedrose.Item;
-
-public final class CheeseProcessor extends AbstractNextDayProcessor {
-
-    public CheeseProcessor(final Item item) {
-        super(item);
+public final class CheeseItem extends Item {
+    public CheeseItem(final String name, final int sellIn, final int quality) {
+        super(name, sellIn, quality);
     }
 
     @Override

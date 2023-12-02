@@ -1,5 +1,12 @@
 package be.yonicon.gildedrose;
 
+import be.yonicon.gildedrose.item.CheeseItem;
+import be.yonicon.gildedrose.item.ConcertPassItem;
+import be.yonicon.gildedrose.item.ConjuredItem;
+import be.yonicon.gildedrose.item.Item;
+import be.yonicon.gildedrose.item.LegendaryItem;
+import be.yonicon.gildedrose.item.RegularItem;
+
 import java.util.function.Consumer;
 
 public class TexttestFixture {
@@ -18,18 +25,18 @@ public class TexttestFixture {
         appender.accept("OMGHAI!");
 
         Item[] items = new Item[] {
-                new Item("+5 Dexterity Vest", 10, 20), //
-                new Item("Aged Brie", 2, 0), //
-                new Item("Elixir of the Mongoose", 5, 7), //
-                new Item("Sulfuras, Hand of Ragnaros", 0, 80), //
-                new Item("Sulfuras, Hand of Ragnaros", -1, 80),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
+                new RegularItem("+5 Dexterity Vest", 10, 20), //
+                new CheeseItem("Aged Brie", 2, 0), //
+                new RegularItem("Elixir of the Mongoose", 5, 7), //
+                new LegendaryItem("Sulfuras, Hand of Ragnaros", 0, 80), //
+                new LegendaryItem("Sulfuras, Hand of Ragnaros", -1, 80),
+                new ConcertPassItem("Backstage passes to a TAFKAL80ETC concert", 15, 20),
+                new ConcertPassItem("Backstage passes to a TAFKAL80ETC concert", 10, 49),
+                new ConcertPassItem("Backstage passes to a TAFKAL80ETC concert", 5, 49),
                 // this conjured item does not work properly yet
-                new Item("Conjured Mana Cake", 3, 6) };
+                new ConjuredItem("Conjured Mana Cake", 3, 6) };
 
-        GildedRose app = new GildedRose(items);
+        GildedRoseInn app = new GildedRoseInn(items);
 
         int days = 2;
         if (args.length > 0) {
@@ -43,7 +50,7 @@ public class TexttestFixture {
                 appender.accept("" + item);
             }
             appender.accept("");
-            app.startNextDay();
+            app.openNextDay();
         }
     }
 
