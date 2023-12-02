@@ -15,10 +15,10 @@ public class RegularItemProcessor extends AbstractNextDayProcessor {
     }
 
     private void updateQuality() {
-        decreaseQuality();
+        decreaseQuality(1);
 
         if (hasSellByDatePassed()) {
-            decreaseQuality();
+            decreaseQuality(1);
         }
     }
 }

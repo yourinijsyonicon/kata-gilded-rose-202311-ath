@@ -25,9 +25,9 @@ public abstract class AbstractNextDayProcessor {
         }
     }
 
-    protected void decreaseQuality() {
+    protected void decreaseQuality(final int amount) {
         if (item.quality > MINIMUM_ITEM_QUALITY) {
-            item.quality = item.quality - 1;
+            item.quality = item.quality - amount;
         }
     }
 

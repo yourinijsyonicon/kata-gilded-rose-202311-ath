@@ -17,6 +17,9 @@ public final class ProcessorFactory {
             case "Backstage passes to a TAFKAL80ETC concert" -> {
                 return new ConcertPassProcessor(item);
             }
+            case "Conjured Mana Cake" -> {
+                return new ConjuredItemProcessor(item);
+            }
             default -> {
                 return new RegularItemProcessor(item);
             }
