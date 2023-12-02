@@ -2,7 +2,7 @@ package be.yonicon.gildedrose.processor;
 
 import be.yonicon.gildedrose.Item;
 
-public class LegendaryProcessor extends AbstractNextDayProcessor {
+public final class LegendaryProcessor extends AbstractNextDayProcessor {
     public LegendaryProcessor(final Item item) {
         super(item);
     }
