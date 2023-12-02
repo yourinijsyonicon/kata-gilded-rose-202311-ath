@@ -16,7 +16,7 @@ class ConcertPassTest {
         Item item = new Item(CONCERT_PASS_NAME, 11, 20);
         GildedRose gildedRose = new GildedRose(new Item[]{item});
 
-        gildedRose.updateQuality();
+        gildedRose.startNextDay();
 
         assertThat(item.name).isEqualTo(CONCERT_PASS_NAME);
         assertThat(item.quality).isEqualTo(21);
@@ -29,7 +29,7 @@ class ConcertPassTest {
         Item item = new Item(CONCERT_PASS_NAME, 10, 20);
         GildedRose gildedRose = new GildedRose(new Item[]{item});
 
-        gildedRose.updateQuality();
+        gildedRose.startNextDay();
 
         assertThat(item.name).isEqualTo(CONCERT_PASS_NAME);
         assertThat(item.quality).isEqualTo(22);
@@ -42,7 +42,7 @@ class ConcertPassTest {
         Item item = new Item(CONCERT_PASS_NAME, 6, 20);
         GildedRose gildedRose = new GildedRose(new Item[]{item});
 
-        gildedRose.updateQuality();
+        gildedRose.startNextDay();
 
         assertThat(item.name).isEqualTo(CONCERT_PASS_NAME);
         assertThat(item.quality).isEqualTo(22);
@@ -55,7 +55,7 @@ class ConcertPassTest {
         Item item = new Item(CONCERT_PASS_NAME, 5, 20);
         GildedRose gildedRose = new GildedRose(new Item[]{item});
 
-        gildedRose.updateQuality();
+        gildedRose.startNextDay();
 
         assertThat(item.name).isEqualTo(CONCERT_PASS_NAME);
         assertThat(item.quality).isEqualTo(23);
@@ -68,7 +68,7 @@ class ConcertPassTest {
         Item item = new Item(CONCERT_PASS_NAME, 1, 20);
         GildedRose gildedRose = new GildedRose(new Item[]{item});
 
-        gildedRose.updateQuality();
+        gildedRose.startNextDay();
 
         assertThat(item.name).isEqualTo(CONCERT_PASS_NAME);
         assertThat(item.quality).isEqualTo(23);
@@ -81,7 +81,7 @@ class ConcertPassTest {
         Item item = new Item(CONCERT_PASS_NAME, 0, 20);
         GildedRose gildedRose = new GildedRose(new Item[]{item});
 
-        gildedRose.updateQuality();
+        gildedRose.startNextDay();
 
         assertThat(item.name).isEqualTo(CONCERT_PASS_NAME);
         assertThat(item.quality).isEqualTo(0);
@@ -94,7 +94,7 @@ class ConcertPassTest {
         Item item = new Item(CONCERT_PASS_NAME, -10, 20);
         GildedRose gildedRose = new GildedRose(new Item[]{item});
 
-        gildedRose.updateQuality();
+        gildedRose.startNextDay();
 
         assertThat(item.name).isEqualTo(CONCERT_PASS_NAME);
         assertThat(item.quality).isEqualTo(0);
@@ -106,7 +106,7 @@ class ConcertPassTest {
         Item item = new Item(CONCERT_PASS_NAME, 1, 49);
         GildedRose gildedRose = new GildedRose(new Item[]{item});
 
-        gildedRose.updateQuality();
+        gildedRose.startNextDay();
 
         assertThat(item.name).isEqualTo(CONCERT_PASS_NAME);
         assertThat(item.quality).isEqualTo(50);

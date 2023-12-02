@@ -15,8 +15,8 @@ class LegendaryTest {
         Item sulfuras = new Item(LEGENDARY_ITEM_NAME, 100, 80);
         GildedRose gildedRose = new GildedRose(new Item[]{sulfuras});
 
-        gildedRose.updateQuality();
-        gildedRose.updateQuality();
+        gildedRose.startNextDay();
+        gildedRose.startNextDay();
 
         assertThat(sulfuras.name).isEqualTo(LEGENDARY_ITEM_NAME);
         assertThat(sulfuras.quality).isEqualTo(80);
@@ -28,8 +28,8 @@ class LegendaryTest {
         Item sulfuras = new Item(LEGENDARY_ITEM_NAME, 100, 49);
         GildedRose gildedRose = new GildedRose(new Item[]{sulfuras});
 
-        gildedRose.updateQuality();
-        gildedRose.updateQuality();
+        gildedRose.startNextDay();
+        gildedRose.startNextDay();
 
         assertThat(sulfuras.name).isEqualTo(LEGENDARY_ITEM_NAME);
         assertThat(sulfuras.quality).isEqualTo(49);
@@ -41,8 +41,8 @@ class LegendaryTest {
         Item sulfuras = new Item(LEGENDARY_ITEM_NAME, -10, 80);
         GildedRose gildedRose = new GildedRose(new Item[]{sulfuras});
 
-        gildedRose.updateQuality();
-        gildedRose.updateQuality();
+        gildedRose.startNextDay();
+        gildedRose.startNextDay();
 
         assertThat(sulfuras.name).isEqualTo(LEGENDARY_ITEM_NAME);
         assertThat(sulfuras.quality).isEqualTo(80);

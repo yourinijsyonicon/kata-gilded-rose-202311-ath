@@ -14,7 +14,7 @@ class CheeseTest {
         Item item = new Item(CHEESE_NAME, 11, 20);
         GildedRose gildedRose = new GildedRose(new Item[]{item});
 
-        gildedRose.updateQuality();
+        gildedRose.startNextDay();
 
         assertThat(item.name).isEqualTo(CHEESE_NAME);
         assertThat(item.quality).isEqualTo(21);
@@ -26,7 +26,7 @@ class CheeseTest {
         Item item = new Item(CHEESE_NAME, -1, 50);
         GildedRose gildedRose = new GildedRose(new Item[]{item});
 
-        gildedRose.updateQuality();
+        gildedRose.startNextDay();
 
         assertThat(item.name).isEqualTo(CHEESE_NAME);
         assertThat(item.quality).isEqualTo(50);
@@ -38,7 +38,7 @@ class CheeseTest {
         Item item = new Item(CHEESE_NAME, -1, 10);
         GildedRose gildedRose = new GildedRose(new Item[]{item});
 
-        gildedRose.updateQuality();
+        gildedRose.startNextDay();
 
         assertThat(item.name).isEqualTo(CHEESE_NAME);
         assertThat(item.quality).isEqualTo(12);

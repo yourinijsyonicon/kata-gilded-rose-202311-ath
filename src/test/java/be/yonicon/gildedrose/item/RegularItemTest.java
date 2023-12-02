@@ -14,7 +14,7 @@ class RegularItemTest {
         Item item = new Item(ITEM_NAME, 10, 20);
         GildedRose gildedRose = new GildedRose(new Item[]{item});
 
-        gildedRose.updateQuality();
+        gildedRose.startNextDay();
 
         assertThat(item.name).isEqualTo(ITEM_NAME);
         assertThat(item.quality).isEqualTo(19);
@@ -26,7 +26,7 @@ class RegularItemTest {
         Item item = new Item(ITEM_NAME, 0, 20);
         GildedRose gildedRose = new GildedRose(new Item[]{item});
 
-        gildedRose.updateQuality();
+        gildedRose.startNextDay();
 
         assertThat(item.name).isEqualTo(ITEM_NAME);
         assertThat(item.quality).isEqualTo(18);
@@ -38,7 +38,7 @@ class RegularItemTest {
         Item item = new Item(ITEM_NAME, 0, 0);
         GildedRose gildedRose = new GildedRose(new Item[]{item});
 
-        gildedRose.updateQuality();
+        gildedRose.startNextDay();
 
         assertThat(item.name).isEqualTo(ITEM_NAME);
         assertThat(item.quality).isEqualTo(0);

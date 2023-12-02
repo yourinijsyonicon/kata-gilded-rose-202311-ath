@@ -43,7 +43,7 @@ public class TexttestFixture {
                 appender.accept("" + item);
             }
             appender.accept("");
-            app.updateQuality();
+            app.startNextDay();
         }
     }
 
