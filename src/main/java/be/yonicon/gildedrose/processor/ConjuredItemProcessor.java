@@ -3,6 +3,9 @@ package be.yonicon.gildedrose.processor;
 import be.yonicon.gildedrose.Item;
 
 public final class ConjuredItemProcessor extends AbstractNextDayProcessor {
+
+    private static final int CONJURED_ITEM_QUALITY_DECREASE = 2;
+
     public ConjuredItemProcessor(final Item item) {
         super(item);
     }
@@ -15,10 +18,10 @@ public final class ConjuredItemProcessor extends AbstractNextDayProcessor {
     }
 
     private void updateQuality() {
-        decreaseQuality(2);
+        decreaseQuality(CONJURED_ITEM_QUALITY_DECREASE);
 
         if (hasSellByDatePassed()) {
-            decreaseQuality(2);
+            decreaseQuality(CONJURED_ITEM_QUALITY_DECREASE);
         }
     }
 }

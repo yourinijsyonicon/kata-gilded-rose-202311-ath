@@ -21,15 +21,11 @@ public abstract sealed class AbstractNextDayProcessor
     }
 
     protected void increaseQuality() {
-        if (item.quality < MAXIMUM_ITEM_QUALITY) {
-            item.quality = item.quality + 1;
-        }
+        item.quality = Math.min(item.quality + 1, MAXIMUM_ITEM_QUALITY);
     }
 
     protected void decreaseQuality(final int amount) {
-        if (item.quality > MINIMUM_ITEM_QUALITY) {
-            item.quality = item.quality - amount;
-        }
+        item.quality = Math.max(item.quality - amount, MINIMUM_ITEM_QUALITY);
     }
 
     protected boolean hasSellByDatePassed() {
