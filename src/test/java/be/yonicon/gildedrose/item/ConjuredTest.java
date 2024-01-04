@@ -44,4 +44,15 @@ class ConjuredTest {
         assertThat(item.quality).isEqualTo(0);
         assertThat(item.sellIn).isEqualTo(-1);
     }
+
+    @Test
+    void conjuredShouldNeverHaveNegativeQualityEvenIfQualityIsOne() {
+        Item item = new Item(ITEM_NAME, 0, 1);
+        GildedRose gildedRose = new GildedRose(new Item[] {item});
+
+        gildedRose.startNextDay();
+
+        assertThat(item.quality).isEqualTo(0);
+        assertThat(item.sellIn).isEqualTo(-1);
+    }
 }
